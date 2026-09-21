@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chromebook Benchmark Suite</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Chromebook Benchmark Suite</h1>
+    <div id="extension-status" class="status-badge disconnected">Extension: Disconnected</div>
+  </header>
+
+  <main>
+    <section id="controls">
+      <button id="run-benchmarks" class="btn primary" disabled>Run Benchmarks</button>
+      <button id="connect-extension" class="btn secondary">Connect Extension</button>
+      <select id="benchmark-mode" class="btn secondary" disabled>
+        <option value="quick">Quick Test (~1-2 min)</option>
+        <option value="full" selected>Full Benchmark (~5-10 min)</option>
+        <option value="stress">Stress Test (~15-20 min)</option>
+      </select>
+      <button id="debug-mode" class="btn secondary" style="font-size: 0.75rem;">Debug: OFF</button>
+      <div id="progress-container" class="hidden">
+        <div id="progress-bar"><div id="progress-fill"></div></div>
+        <div id="progress-text">Initializing...</div>
+        <div class="control-buttons">
+          <button id="pause-benchmarks" class="btn secondary" disabled>Pause</button>
+          <button id="abort-benchmarks" class="btn secondary" disabled style="background: var(--danger); border-color: var(--danger);">Abort</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="telemetry-container" class="hidden">
+      <h3>Live Telemetry</h3>
+      <div class="telemetry-grid">
+        <div class="telemetry-item">
+          <span class="telemetry-label">CPU Temp</span>
+          <span id="cpu-temp" class="telemetry-value">—</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">CPU Utilization</span>
+          <span id="cpu-util" class="telemetry-value">—</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">Current FPS</span>
+          <span id="current-fps" class="telemetry-value">—</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">Power</span>
+          <span id="power-state" class="telemetry-value">—</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="baseline" class="hidden"></section>
+
+    <section id="compatibility" class="hidden">
+      <h2>Feature Compatibility</h2>
+    </section>
+
+    <section id="history" class="hidden">
+      <h2>Benchmark History</h2>
+      <div id="history-content"></div>
+    </section>
+
+    <section id="results" class="hidden">
+      <h2>Results</h2>
+      <div id="score-summary">
+        <div id="final-score" class="score-large">—</div>
+        <div id="score-tier">—</div>
+      </div>
+      <div id="category-breakdown"></div>
+      <div id="system-info" class="hidden">
+        <h3>System Information (from Extension)</h3>
+        <div id="system-info-grid"></div>
+      </div>
+      <div id="charts-container">
+        <canvas id="radar-chart"></canvas>
+      </div>
+      <div id="telemetry-charts" class="hidden">
+        <h3>Thermal & Performance Over Time</h3>
+        <canvas id="thermal-chart"></canvas>
+        <canvas id="performance-chart"></canvas>
+      </div>
+      <button id="export-results" class="btn secondary">Export JSON</button>
+      <button id="export-csv" class="btn secondary">Export CSV</button>
+    </section>
+
+    <section id="details" class="hidden">
+      <h2>Detailed Results</h2>
+      <div id="detail-tabs"></div>
+      <div id="detail-content"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Chromebook Benchmark Suite — Open Source</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

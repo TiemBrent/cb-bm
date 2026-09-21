@@ -1,0 +1,23 @@
+{
+  "name": "Chromebook Benchmark Suite Extension",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Headless bridge for system info and elevated benchmarks",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "externally_connectable": {
+    "matches": ["http://localhost:*", "https://*.github.io/*", "file:///*"]
+  },
+  "permissions": [
+    "system.cpu",
+    "system.memory",
+    "system.storage",
+    "system.display",
+    "power"
+  ],
+  "optional_permissions": [
+    "system.network"
+  ]
+}
