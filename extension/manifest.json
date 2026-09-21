@@ -8,7 +8,12 @@
     "type": "module"
   },
   "externally_connectable": {
-    "matches": ["http://localhost:*", "https://*.github.io/*", "file:///*"]
+    "matches": [
+      "http://localhost:*",
+      "https://tiembrent.github.io/cb-bm/*",
+      "https://*.github.io/*",
+      "file:///*"
+    ]
   },
   "permissions": [
     "system.cpu",
